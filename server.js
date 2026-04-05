@@ -59,7 +59,7 @@ app.get("/college_student:id", (req, res) => {
 
 app.put("/college_student:id", (req, res) => {
     const{name, email, course, age}= req.body;
-    const sql = "UPDATE college_student SET name=?, email=?, course=?, age=?";
+    const sql = "UPDATE college_student SET name=?, email=?, course=?, age=?" WHERE id=?;
     db.query(sql, [name, email, course, age, req.params.id], (err, result) => {
         if(err)return res.status(500).json ({error:err.message});
         if(result.affectRows === 0)return res.status(404).json ({error:"college student not found"});
